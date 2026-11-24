@@ -1,0 +1,34 @@
+\section{Introducción}
+
+En el entorno comercial actual, la digitalización de los procesos de venta y atención al cliente constituye un factor determinante para la competitividad de las empresas distribuidoras. Las organizaciones dedicadas a la comercialización de materiales de escritorio y papelería enfrentan el desafío constante de gestionar catálogos amplios con alta rotación de inventario, donde la dependencia de registros manuales o la atención exclusivamente presencial puede derivar en demoras operativas, desactualización de precios y errores en el control de existencias.
+
+El presente documento desarrolla la especificación de ingeniería de software para el \textbf{Sistema Web de Compra de Materiales de Escritorio}, orientado al modelo de negocio B2C (\textit{Business to Consumer}), para la empresa importadora y comercializadora \textbf{``Suministros G\&T''}. El propósito de esta solución es modernizar el canal de ventas mediante una plataforma virtual intuitiva que permita a los clientes particulares y oficinistas explorar el catálogo digital por categorías, consultar disponibilidad en tiempo real, gestionar su carrito de compras y confirmar pedidos, al tiempo que dota al administrador de herramientas centralizadas para el control de productos, inventario y estados de entrega.
+
+\subsection{Planteamiento del Problema}
+
+Actualmente, la gestión comercial de ``Suministros G\&T'' presenta limitaciones propias de los procesos tradicionales: la consulta de disponibilidad de artículos y precios requiere intervención directa del personal de tienda, lo que ralentiza la toma de pedidos y dificulta la atención simultánea de múltiples clientes. Asimismo, la falta de una sincronización automatizada entre las solicitudes de compra y el inventario físico incrementa el riesgo de comprometer artículos sin existencias (\textit{stock}) o de mantener información desactualizada en el catálogo.
+
+Ante esta situación, surge la necesidad de diseñar una plataforma web cliente-servidor que centralice la información comercial, automatice el cálculo de importes y la validación de existencias antes de confirmar cada pedido, y proporcione trazabilidad tanto al comprador como al equipo administrativo.
+
+\subsection{Objetivos del Proyecto}
+
+\subsubsection{Objetivo General}
+Elaborar el análisis, planificación y modelado técnico detallado del Sistema Web de Compra de Materiales de Escritorio bajo el modelo B2C para la empresa ``Suministros G\&T'', aplicando las prácticas del Proceso Unificado Ágil (AUP) para garantizar una especificación consistente, trazable y orientada a la calidad del software.
+
+\subsubsection{Objetivos Específicos}
+\begin{itemize}
+    \item Identificar los actores principales y de contexto que interactúan con la plataforma, así como especificar y codificar los 18 requerimientos funcionales (\texttt{RF01}--\texttt{RF18}) y 11 requerimientos no funcionales (\texttt{RNF01}--\texttt{RNF11}) del sistema.
+    \item Delimitar el alcance técnico del proyecto hasta la fase de diseño detallado, estableciendo la estructura de roles del equipo, la estimación de esfuerzo, el cronograma iterativo y la matriz de gestión de riesgos (RMMM).
+    \item Modelar el comportamiento dinámico, la estructura lógica, el esquema relacional de base de datos en MySQL y los prototipos visuales (UX/UI) que cubran al $100\%$ los requerimientos establecidos.
+    \item Asegurar la calidad y consistencia de todos los artefactos mediante mecanismos de control de configuración en GitHub, auditorías UML y una matriz de trazabilidad requerimiento-modelo.
+\end{itemize}
+
+\subsection{Estructura del Documento}
+
+Para abordar de manera ordenada las etapas iniciales del ciclo de vida del software, el presente informe se organiza en cuatro secciones principales:
+\begin{itemize}
+    \item \textbf{Introducción:} Contextualiza la problemática comercial de ``Suministros G\&T'', plantea los objetivos general y específicos, y describe la organización del documento.
+    \item \textbf{Marco Teórico y Metodología (AUP):} Expone los fundamentos del Proceso Unificado Ágil (\textit{Serial in the Large} e \textit{Iterative in the Small}), sus ventajas para el sector papelero, las herramientas de modelado y arquitectura de referencia, y las políticas de gestión de configuración.
+    \item \textbf{Fase I: Comunicación:} Detalla la identificación de actores, el catálogo completo de requerimientos funcionales y no funcionales, el glosario técnico del dominio y el modelado general y expandido de casos de uso.
+    \item \textbf{Fase II: Planeación:} Define los límites y exclusiones del alcance, la asignación de roles del equipo de siete integrantes, la estimación de esfuerzo en horas-persona, el cronograma de tres iteraciones, la estrategia de riesgos RMMM, los mecanismos de auditoría y los criterios de aceptación.
+\end{itemize}

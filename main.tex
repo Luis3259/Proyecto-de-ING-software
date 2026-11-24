@@ -1,0 +1,58 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[margin=2.54cm]{geometry}
+\usepackage{mathptmx} 
+\usepackage{tabularx}
+\usepackage{xltabular}
+
+\renewcommand{\labelitemi}{\textbullet}
+
+% Interlineado doble y sangría de primera línea (0.5 pulgadas = 1.27 cm)
+\usepackage{setspace}
+%\doublespacing
+\setlength{\parindent}{1.27cm}
+\setlength{\parskip}{0pt}
+\usepackage{ragged2e}
+\usepackage{sectsty}
+\allsectionsfont{\raggedright}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\graphicspath{{Imagenes/}} 
+
+\begin{document}
+% --- caratula ---
+\input{Secciones/Caratula.tex}
+\newpage
+
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+
+% --- Reiniciar numeración en la Introducción ---
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% --- Secciones ---
+% --- Introducción ---
+\input{Secciones/1. Introduccion.tex}
+% --- Marco teórico y metodología ---
+\input{Secciones/2. Marco teorico y metodologia.tex}
+% --- Comunicación ---
+\input{Secciones/3. Comunicacion.tex}
+% --- Planificación ---
+\input{Secciones/4. Planificacion.tex}
+
+\end{document}

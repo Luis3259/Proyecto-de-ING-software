@@ -1,0 +1,125 @@
+\section{Marco Teórico y Metodología (AUP)}
+
+El presente proyecto se fundamenta en el Proceso Unificado Ágil (\textit{Agile Unified Process}, AUP), una metodología híbrida propuesta por Scott Ambler que simplifica el Proceso Unificado de Rational (RUP) mediante la incorporación de prácticas ágiles como el modelado ágil, la validación continua y la gestión controlada de cambios. Su objetivo es proporcionar un marco estructurado pero ligero que permita especificar y diseñar software de alta calidad sin burocracia excesiva.
+
+\subsection{Agile Unified Process (AUP)}
+
+AUP organiza el ciclo de vida del desarrollo de software en cuatro fases secuenciales -Inicio, Elaboración, Construcción y Transición-, mientras ejecuta de manera iterativa siete disciplinas clave (Modelo, Implementación, Prueba, Despliegue, Gestión de Configuración, Gestión de Proyectos y Entorno) dentro de cada iteración. Considerando el alcance académico del proyecto, el equipo aplica las disciplinas de Modelo, Gestión de Configuración y Gestión de Proyectos a lo largo de las fases de Inicio (Comunicación y Planeación) y Elaboración (Modelado detallado), dejando las fases de Construcción y Transición proyectadas para una etapa posterior de implementación.
+
+\subsubsection{Filosofía \textit{Serial in the Large} e \textit{Iterative in the Small}}
+
+La arquitectura metodológica de AUP se sustenta en un principio dual que equilibra la planificación macro con la agilidad operativa:
+
+\begin{itemize}
+    \item \textbf{\textit{Serial in the Large} (En serie a gran escala):} A nivel global del proyecto, las fases principales se ejecutan de manera secuencial. Esto garantiza que se establezcan hitos claros de control, líneas base aprobadas (\texttt{LB-I1}, \texttt{LB-I2}, \texttt{LB-I3}) y una visión arquitectónica sólida antes de comprometer recursos en etapas posteriores.
+    \item \textbf{\textit{Iterative in the Small} (Iterativo a pequeña escala):} Dentro de cada fase, el trabajo se divide en iteraciones cortas e incrementales. En cada iteración el equipo refina los modelos, valida los requerimientos, actualiza la arquitectura y verifica la consistencia de los artefactos, permitiendo adaptarse rápidamente a hallazgos o ajustes del negocio sin perder el rumbo general.
+\end{itemize}
+
+\subsubsection{Ventajas para el sector industrial (Papelero)}
+
+La aplicación de AUP en el contexto comercial del sector papelero y de suministros de oficina -específicamente para la empresa ``Suministros G\&T''- ofrece beneficios estratégicos directos:
+
+\begin{itemize}
+    \item \textbf{Control preciso de catálogos e inventarios:} El sector papelero maneja una alta variedad de artículos (cuadernos, papelería bond, escritura, archivo) con rotación constante. El modelado iterativo permite validar tempranamente las reglas de negocio críticas, como el descuento automático de \textit{stock} al confirmar pedidos y la prevención de ventas sin existencias.
+    \item \textbf{Trazabilidad y estandarización:} La disciplina de Gestión de Configuración asegura que los cambios en requerimientos, categorías o flujos de pedido queden documentados y vinculados desde la especificación hasta el diseño de base de datos, evitando inconsistencias operativas.
+    \item \textbf{Reducción de riesgos en la digitalización comercial:} Al transicionar de procesos manuales hacia una plataforma web B2C (\textit{Business to Consumer}), AUP permite validar los flujos de compra y prototipos visuales desde las primeras semanas, garantizando una interfaz intuitiva tanto para compradores particulares como para administradores de tienda.
+\end{itemize}
+
+\subsection{Tecnologías y Herramientas Propuestas}
+
+Para el diseño del Sistema Web de Compra de Materiales de Escritorio de la empresa ``Suministros G\&T'' se define una arquitectura cliente-servidor orientada al comercio electrónico B2C, que permite centralizar la gestión del catálogo, carrito de compras, control de inventario y seguimiento de pedidos.
+
+En concordancia con el alcance establecido en la Sección \ref{subsec:alcance_delimitacion}, la Tabla \ref{tab:tecnologias_herramientas} distingue tanto las herramientas utilizadas directamente en las fases de análisis, modelado y prototipado como el \textit{stack} tecnológico de referencia sobre el cual se especifican la arquitectura y el diccionario de datos para su futura implementación.
+
+{\small
+\begin{xltabular}{\textwidth}{|>{\raggedright\arraybackslash}p{2.8cm}|>{\raggedright\arraybackslash}p{3.4cm}|X|}
+    \caption{Tecnologías y herramientas de modelado y arquitectura de referencia}
+    \label{tab:tecnologias_herramientas} \\
+    \hline
+    \textbf{Elemento} & \textbf{Herramienta propuesta} & \textbf{Justificación} \\
+    \hline
+    \endfirsthead
+
+    \multicolumn{3}{l}{\textit{Continuación de la Tabla \ref{tab:tecnologias_herramientas}}} \\
+    \hline
+    \textbf{Elemento} & \textbf{Herramienta propuesta} & \textbf{Justificación} \\
+    \hline
+    \endhead
+
+    \multicolumn{3}{r}{\textit{Continúa en la siguiente página...}} \\
+    \endfoot
+
+    \endlastfoot
+
+    Modelado UML y de datos & Draw.io (diagrams.net) & Herramienta estandarizada del equipo para elaborar todos los diagramas UML (casos de uso, clases, secuencia, actividades, estados, componentes y despliegue) y el modelo E-R. \\*
+    \hline
+    Diseño de prototipos & Figma & Permite diseñar los \textit{wireframes} y \textit{mockups} navegables de las interfaces de Cliente y Administrador para validar la experiencia de usuario (UX/UI). \\*
+    \hline
+    Control de versiones & Git y GitHub & Permiten centralizar los archivos editables (\texttt{.drawio}, \texttt{.tex}), gestionar ramas por artefacto y auditar el historial de cambios del equipo. \\*
+    \hline
+    Documentación técnica & Overleaf (LaTeX) & Permite redactar, estructurar y compilar de forma colaborativa el informe técnico maestro bajo estándares formales. \\*
+    \hline
+    Base de datos (especificación) & MySQL & Motor relacional de referencia utilizado para definir los tipos de datos, restricciones de integridad y esquema normalizado en el diccionario de datos. \\*
+    \hline
+    Interfaz de usuario (referencia) & HTML5, CSS3, JavaScript y Bootstrap & Tecnologías proyectadas para construir una interfaz web responsiva e intuitiva en la etapa posterior de desarrollo. \\*
+    \hline
+    Backend / Lógica (referencia) & Node.js (Express) & Entorno proyectado para centralizar las reglas de negocio del modelo B2C, la autenticación por roles y las validaciones de inventario. \\
+    \hline
+\end{xltabular}
+}
+
+Estas herramientas garantizan una especificación técnica organizada, trazable y consistente durante las fases de Comunicación, Planeación y Modelado, sentando bases sólidas para una futura fase de construcción sin ambigüedades.
+
+\subsection{Gestión de la Configuración y Documentación}
+
+La gestión de la configuración es una actividad fundamental para mantener el control de los cambios realizados durante el análisis y modelado del Sistema Web de Compra de Materiales de Escritorio para ``Suministros G\&T''. Esta disciplina permite organizar y auditar las diferentes versiones de los diagramas, esquemas de base de datos, prototipos y documentación técnica del proyecto.
+
+Para llevar un adecuado control de la configuración se establecen las siguientes actividades:
+
+\begin{itemize}
+    \item \textbf{Crear un repositorio del proyecto:} Utilizar GitHub para centralizar todos los archivos del equipo y mantener un respaldo seguro. Se organizarán carpetas estructuradas como \texttt{/docs}, \texttt{/diagramas}, \texttt{/bd} y \texttt{/prototipos}.
+    \item \textbf{Definir ramas de trabajo:} Utilizar la rama \texttt{main} para las líneas base aprobadas, \texttt{develop} para integrar los avances validados y ramas \texttt{feature} por artefacto o módulo (por ejemplo, \texttt{feature/diagrama-clases} o \texttt{feature/modelo-er}).
+    \item \textbf{Registrar los cambios realizados:} Utilizar Git para guardar las modificaciones mediante mensajes descriptivos estandarizados, por ejemplo: ``\texttt{docs: actualizar requerimientos funcionales}'', ``\texttt{feat: agregar diagrama de secuencia carrito}'' o ``\texttt{fix: corregir cardinalidad en modelo ER}''.
+    \item \textbf{Controlar las versiones del esquema de base de datos:} Mantener scripts SQL de especificación numerados para registrar la evolución del diseño relacional, por ejemplo: \texttt{V01\_esquema\_tablas.sql} y \texttt{V02\_restricciones\_fk.sql}.
+    \item \textbf{Mantener un registro de modificaciones:} Utilizar un archivo \texttt{CHANGELOG.md} donde se registren las fechas, responsables y descripciones de los cambios aprobados en cada iteración.
+    \item \textbf{Controlar las versiones de documentos:} Etiquetar las entregas del documento maestro mediante las líneas base planificadas (\texttt{LB-I1}, \texttt{LB-I2} y \texttt{LB-I3}), evitando la duplicación o pérdida de avances.
+    \item \textbf{Aprobar cambios en los requerimientos:} Cualquier solicitud de modificación tras cerrar \texttt{LB-I1} deberá registrarse indicando su descripción, motivo, impacto en los modelos, responsable y aprobación del Coordinador y QA.
+    \item \textbf{Elaborar documentación técnica:} Mantener actualizados los casos de uso expandidos, el glosario técnico, el diccionario de datos, los diagramas UML y la matriz de trazabilidad.
+\end{itemize}
+
+Para mantener una adecuada organización, en la Tabla \ref{tab:control_artefactos} se establece el esquema de control de los principales artefactos del proyecto.
+
+{\small
+\begin{xltabular}{\textwidth}{|>{\raggedright\arraybackslash}p{3.2cm}|>{\raggedright\arraybackslash}p{3.4cm}|X|}
+    \caption{Control de artefactos principales del proyecto}
+    \label{tab:control_artefactos} \\
+    \hline
+    \textbf{Artefacto} & \textbf{Responsable sugerido} & \textbf{Control requerido} \\
+    \hline
+    \endfirsthead
+
+    \multicolumn{3}{l}{\textit{Continuación de la Tabla \ref{tab:control_artefactos}}} \\
+    \hline
+    \textbf{Artefacto} & \textbf{Responsable sugerido} & \textbf{Control requerido} \\
+    \hline
+    \endhead
+
+    \multicolumn{3}{r}{\textit{Continúa en la siguiente página...}} \\
+    \endfoot
+
+    \endlastfoot
+
+    Documento maestro & Líder de proyecto / Coordinador & Control de versiones (\texttt{LB-I1} a \texttt{LB-I3}), fechas de actualización y consolidación del texto. \\*
+    \hline
+    Diagramas UML & Especialistas en modelado dinámico y estructural & Mantener archivos editables (\texttt{.drawio}), exportaciones PNG/PDF y coherencia con la plantilla visual. \\*
+    \hline
+    Modelo de datos & Especialistas en modelado estructural y BD & Control del modelo E-R, esquema relacional normalizado, diccionario de datos y scripts SQL de referencia. \\*
+    \hline
+    Prototipos de interfaz & Especialista en arquitectura y UX/UI & Mantener actualizados los \textit{wireframes} y \textit{mockups} navegables en Figma según los RF/RNF. \\*
+    \hline
+    Auditoría y trazabilidad & Responsable de calidad (QA) & Gestionar la matriz de trazabilidad al $100\%$, actas de revisión y control de ramas en GitHub. \\
+    \hline
+\end{xltabular}
+}
+
+La aplicación de estas actividades permitirá mantener la organización del proyecto, facilitar el trabajo colaborativo entre los siete integrantes y garantizar que todos los artefactos estén debidamente versionados y controlados durante las fases abordadas bajo la metodología AUP.
