@@ -1,0 +1,39 @@
+\section{Metodología de Desarrollo}
+
+\subsection{Descripción de la metodología AUP (Proceso Unificado Ágil)}
+Para organizar y llevar a cabo el desarrollo del \textbf{Sistema Web de Compra de Materiales de Escritorio} para ``Suministros G\&T'', se eligió la metodología \textbf{AUP (Agile Unified Process o Proceso Unificado Ágil)}, propuesta por Scott Ambler. Esta metodología es una versión más ligera y práctica del Proceso Unificado de Rational (RUP), pensada para equipos de trabajo que necesitan orden y buena documentación técnica, pero sin caer en trámites pesados o burocráticos que atrasen el avance.
+
+AUP combina una estructura clara por fases con prácticas ágiles como el trabajo iterativo, la validación constante de avances y la comunicación continua dentro del equipo. Además, integra las actividades fundamentales de la ingeniería de software (comunicación, planeación, modelado, construcción y despliegue) a lo largo de sus iteraciones, permitiendo que cada entregable se construya y revise de forma progresiva.
+
+\subsection{Características de la metodología AUP}
+El Proceso Unificado Ágil se distingue por aplicar principios concretos que facilitan el trabajo en equipo:
+\begin{itemize}
+    \item \textbf{Enfoque serial a gran escala e iterativo a pequeña escala:} Las fases principales del proyecto se avanzan en orden secuencial para mantener hitos claros de control, mientras que dentro de cada fase se trabaja mediante iteraciones cortas donde se van puliendo los diagramas, modelos y prototipos.
+    \item \textbf{Modelado ágil y efectivo:} No se dibujan diagramas por relleno; cada modelo (casos de uso, clases, base de datos, secuencia) cumple un propósito claro para entender el negocio y evitar errores antes de programar.
+    \item \textbf{Simplicidad en la documentación:} La documentación es directa, comprensible y trazable, enfocándose en lo que realmente necesitan tanto los interesados del negocio como el equipo técnico.
+    \item \textbf{Adaptabilidad frente a cambios:} Si durante el análisis se detecta una mejora en el flujo del carrito o en el control de stock, la metodología permite ajustar los modelos en la siguiente iteración sin desordenar todo el proyecto.
+    \item \textbf{Control de calidad continuo:} Desde las primeras etapas se revisa que los nombres de tablas, clases y funciones coincidan entre sí mediante listas de verificación y trazabilidad de requerimientos.
+\end{itemize}
+
+\subsection{Justificación de la elección de AUP}
+Se decidió utilizar AUP en lugar de un enfoque puramente tradicional (como Cascada) o uno sin estructura documental previa, debido a las características propias de nuestro proyecto y equipo:
+\begin{itemize}
+    \item \textbf{Adecuación al negocio papelero y B2C:} ``Suministros G\&T'' maneja un catálogo variado con movimientos constantes de inventario. AUP permite validar desde el principio las reglas críticas del negocio (como el descuento automático de existencias al confirmar una compra) antes de escribir código.
+    \item \textbf{División clara de roles en el equipo:} Al contar con un equipo de siete integrantes, las disciplinas de AUP facilitan repartir responsabilidades específicas (análisis, modelado dinámico, base de datos, diseño UX/UI y control de calidad) con entregas bien definidas.
+    \item \textbf{Coherencia académica y técnica:} La estructura de AUP encaja directamente con los entregables exigidos en la asignatura, permitiendo abarcar de forma rigurosa las fases de Inicio y Elaboración y dejar proyectadas con claridad las fases de Construcción y Transición.
+\end{itemize}
+
+\subsection{Fases de la metodología AUP}
+El ciclo de vida de AUP se divide en cuatro fases secuenciales. A continuación, se describe el propósito de cada una y cómo se aplica dentro del proyecto:
+
+\subsubsection{Inicio}
+En esta primera fase se busca comprender el problema real de ``Suministros G\&T'' y definir el rumbo del proyecto. Durante el Inicio se identifican los actores que interactuarán con la plataforma, se elabora el modelo ambiental de contexto para delimitar la frontera del sistema, se levantan los requerimientos funcionales y no funcionales, y se arma el cronograma inicial junto con el alcance. Al cerrar esta fase, todo el equipo tiene claro qué se va a construir y bajo qué reglas.
+
+\subsubsection{Elaboración}
+Esta es la fase central del análisis y diseño técnico. Aquí se profundiza en los requerimientos mediante la especificación detallada de los casos de uso y se construyen todos los modelos del sistema: diagrama de clases, modelo conceptual y diagrama entidad-relación, diseño normalizado de la base de datos en MySQL, diagramas dinámicos (secuencia, actividades y estados), arquitectura cliente-servidor y prototipos visuales de las interfaces. El objetivo de la Elaboración es dejar una base arquitectónica sólida y sin ambigüedades antes de pasar a programar.
+
+\subsubsection{Construcción}
+En la fase de Construcción se transforma todo el diseño elaborado en un producto de software funcional. Se prepara el entorno de desarrollo, se implementa la base de datos física y se programan los distintos módulos del sistema (gestión de cuentas, catálogo y productos, inventario, carrito y pedidos, pagos, entregas y reportes), ejecutando pruebas unitarias, de integración y funcionales para verificar que cada módulo cumpla con lo especificado.
+
+\subsubsection{Transición}
+Finalmente, la fase de Transición se enfoca en poner el sistema a disposición de los usuarios finales de ``Suministros G\&T''. Incluye la instalación y configuración en el entorno operativo, las pruebas de aceptación con los usuarios reales, la entrega del manual de usuario, el despliegue oficial y una evaluación final del funcionamiento de la tienda virtual.

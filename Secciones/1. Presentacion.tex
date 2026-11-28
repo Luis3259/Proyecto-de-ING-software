@@ -1,0 +1,65 @@
+\section{Presentación del Proyecto}
+
+\subsection{Introducción}
+Hoy en día, las tiendas que venden material de escritorio y papelería necesitan atender rápido a sus clientes y llevar un buen control de su mercadería. Cuando las ventas se manejan solo en mostrador o con registros manuales, es común que se pierda tiempo buscando precios, revisando si queda stock en el almacén o anotando pedidos en papel.
+
+Este documento presenta el análisis, planificación y diseño del \textbf{Sistema Web de Compra de Materiales de Escritorio} para la importadora y comercializadora \textbf{``Suministros G\&T''}, pensado bajo un enfoque de venta directa al consumidor (B2C). La idea es que los clientes puedan entrar desde su computadora o celular, ver el catálogo por categorías, revisar si hay disponibilidad en tiempo real, armar su carrito y confirmar su pedido sin tener que ir hasta la tienda, mientras que el personal de la empresa administra productos, precios, existencias y entregas desde un mismo lugar.
+
+\subsection{Antecedentes}
+La empresa \textbf{``Suministros G\&T''} se dedica a la importación y venta de artículos de escritorio, útiles escolares y papelería de oficina (como cuadernos, hojas bond, bolígrafos, marcadores, archivadores y carpetas). Hasta ahora, su atención se ha centrado en la venta presencial en tienda y pedidos por teléfono o mensajería, apoyándose en planillas básicas para revisar precios y existencias.
+
+A medida que el catálogo fue creciendo y aumentó la demanda de oficinas y estudiantes, la forma tradicional de trabajo empezó a quedarse corta. No contar con una tienda virtual propia ni con un sistema centralizado de inventario dificulta mostrar los productos disponibles al público y obliga al personal a verificar cada artículo de forma manual antes de cerrar una venta.
+
+\subsection{Descripción del problema}
+En la operación diaria de ``Suministros G\&T'' se presentan varios problemas concretos que afectan tanto a los compradores como al equipo de trabajo:
+\begin{itemize}
+    \item \textbf{Consultas lentas:} Para saber si hay un artículo disponible o cuál es su precio actualizado, el cliente tiene que preguntar directamente a un vendedor, lo que genera demoras cuando hay varias personas pidiendo al mismo tiempo.
+    \item \textbf{Falta de sincronización con el inventario:} Al no existir un descuento automático de existencias cuando se toma un pedido, se corre el riesgo de ofrecer productos que ya se agotaron en almacén.
+    \item \textbf{Poca visibilidad de los pedidos:} Una vez que el cliente hace una compra, no tiene una forma sencilla de ver en qué estado se encuentra su pedido (si ya fue recibido, si se está preparando o si ya salió para entrega).
+    \item \textbf{Trabajo administrativo repetitivo:} Actualizar precios, registrar nuevos útiles o revisar el historial de compras de forma manual toma demasiado tiempo y aumenta la posibilidad de errores en los montos totales.
+\end{itemize}
+
+\subsection{Planteamiento del problema}
+Considerando las dificultades actuales en la comercialización y el control de inventario de la importadora, surge la siguiente pregunta que guía el proyecto:
+
+\begin{quote}
+\textit{¿De qué manera el diseño de un sistema web de compras orientado al modelo B2C permitirá a ``Suministros G\&T'' agilizar la atención de pedidos, mantener actualizado su catálogo e inventario en tiempo real y mejorar el seguimiento de las entregas para sus clientes?}
+\end{quote}
+
+\subsection{Justificación}
+Desarrollar este proyecto resulta necesario por tres razones principales:
+\begin{itemize}
+    \item \textbf{Desde el punto de vista operativo:} Automatizar el cálculo de subtotales, la validación de stock antes de confirmar un pedido y la actualización de estados evita errores humanos y ahorra tiempo al personal de tienda.
+    \item \textbf{Desde el punto de vista comercial:} Contar con un catálogo digital disponible las 24 horas permite que clientes particulares y oficinistas revisen productos y hagan sus pedidos con comodidad desde cualquier dispositivo, aumentando el alcance de la tienda.
+    \item \textbf{Desde el punto de vista académico y técnico:} Aplicar el Proceso Unificado Ágil (AUP) permite organizar el trabajo del equipo de desarrollo paso a paso, asegurando que todos los requerimientos del negocio queden bien documentados y trazados antes de pasar a la etapa de programación.
+\end{itemize}
+
+\subsection{Objetivo general y objetivos específicos}
+
+\textbf{Objetivo general}
+\begin{itemize}
+    \item Realizar el análisis, planificación y diseño técnico detallado del \textbf{Sistema Web de Compra de Materiales de Escritorio} bajo el modelo B2C para la empresa ``Suministros G\&T'', aplicando las fases de la metodología AUP para obtener una especificación clara, ordenada y lista para su implementación.
+\end{itemize}
+
+\textbf{Objetivos específicos}
+\begin{itemize}
+    \item Levantar las necesidades del negocio, identificar los actores del sistema y definir de forma clara los requerimientos funcionales y no funcionales junto con el modelo ambiental de contexto.
+    \item Elaborar los modelos estructurales, dinámicos y de datos del sistema (casos de uso, diagrama de clases, modelo entidad-relación, diccionario de datos en MySQL y arquitectura) cubriendo todos los requerimientos definidos.
+    \item Diseñar prototipos navegables de interfaz de usuario (wireframes y mockups) que sean fáciles de usar tanto para los clientes como para los administradores de la tienda.
+    \item Establecer la planificación técnica de las fases de construcción y transición (entorno de desarrollo, pruebas y despliegue) y asegurar la consistencia de todos los artefactos mediante una matriz de trazabilidad.
+\end{itemize}
+
+\subsection{Alcance y limitaciones}
+
+\textbf{Alcance del proyecto}
+\begin{itemize}
+    \item \textbf{Cobertura metodológica:} El desarrollo práctico del presente trabajo abarca de forma completa las fases de \textbf{Inicio} (visión, modelo ambiental, requerimientos y cronograma) y \textbf{Elaboración} (modelado UML, diseño de base de datos y prototipos visuales). Asimismo, se deja especificada la estructura técnica y el plan de trabajo para las fases posteriores de \textbf{Construcción} y \textbf{Transición}.
+    \item \textbf{Funcionalidades modeladas:} Gestión de cuentas y roles (Cliente, Empleado y Administrador), catálogo digital con filtros y búsqueda, carrito de compras con validación automática de stock, confirmación y seguimiento de pedidos por estados, gestión de productos, inventario, pagos, entregas y reportes básicos.
+\end{itemize}
+
+\textbf{Limitaciones}
+\begin{itemize}
+    \item \textbf{Sin despliegue productivo en esta etapa:} Debido al tiempo y enfoque de la asignatura, en esta entrega no se realiza la puesta en marcha en un servidor comercial ni el cobro real con pasarelas bancarias externas; el registro de pagos y entregas se modela mediante estados administrativos controlados dentro del sistema.
+    \item \textbf{Sin geolocalización en tiempo real:} El seguimiento de pedidos muestra el avance por etapas (por ejemplo: recibido, en preparación, en camino y entregado), sin incluir rastreo GPS en mapa.
+\end{itemize}
+

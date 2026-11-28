@@ -1,0 +1,196 @@
+\section{Fase de Inicio -- AUP}
+
+\subsection{Visión general del sistema}
+El \textbf{Sistema Web de Compra de Materiales de Escritorio} para la importadora \textbf{``Suministros G\&T''} es una plataforma de comercio electrónico orientada al modelo B2C (venta directa al consumidor final) que centraliza el catálogo de útiles escolares y artículos de oficina, el control de inventario y la gestión de pedidos.
+
+La plataforma funciona bajo una arquitectura cliente-servidor accesible desde cualquier navegador web moderno, tanto en computadoras como en teléfonos móviles. A través de ella, los compradores pueden explorar el catálogo organizado por categorías, verificar la disponibilidad real de cada artículo, armar su carrito de compras y confirmar sus pedidos, mientras que el equipo interno de la tienda controla las existencias, actualiza precios, valida pagos y da seguimiento a las entregas de manera ordenada y sin duplicar registros.
+
+\subsection{Identificación de necesidades del negocio}
+A partir del análisis realizado sobre la operación actual de ``Suministros G\&T'', se identificaron las principales necesidades que el sistema debe resolver:
+\begin{itemize}
+    \item \textbf{Disponibilidad de catálogo en línea:} Contar con un espacio digital actualizado donde los clientes consulten productos, características y precios vigentes sin depender de atención telefónica o presencial.
+    \item \textbf{Control automático de existencias (stock):} Evitar que se confirmen pedidos de materiales agotados mediante la validación previa del inventario y el descuento automático al cerrar cada compra.
+    \item \textbf{Agilización en el armado y cálculo de pedidos:} Permitir que el comprador agregue o modifique cantidades en su carrito con cálculo inmediato de subtotales y monto total.
+    \item \textbf{Trazabilidad de pedidos, pagos y entregas:} Registrar cada compra con un identificador único y permitir actualizar su estado operativo (desde la recepción del pedido hasta su entrega final).
+    \item \textbf{Administración centralizada e informes:} Facilitar al personal de la empresa el mantenimiento de categorías, precios, usuarios y la generación de reportes básicos de ventas e inventario.
+\end{itemize}
+
+\subsection{Identificación de los actores}
+Los actores representan a los usuarios internos y externos que interactúan directamente con el sistema según los permisos asignados a su rol:
+
+\subsubsection{Cliente}
+Es el comprador particular, estudiante u oficinista que accede a la tienda virtual para crear una cuenta, iniciar sesión, explorar el catálogo digital, buscar materiales por nombre o categoría, revisar detalles y disponibilidad, administrar su carrito de compras, registrar su dirección de entrega y método de pago, confirmar pedidos y consultar el historial y estado de sus compras.
+
+\subsubsection{Empleado}
+Es el personal operativo de tienda y almacén encargado de atender el flujo diario de ventas. Sus funciones dentro de la plataforma consisten en revisar los pedidos entrantes, preparar los paquetes de materiales solicitados, verificar el registro de pagos recibidos, actualizar el estado de preparación y despacho de los pedidos y apoyar en el control operativo de entregas.
+
+\subsubsection{Administrador}
+Es el gerente de tienda o encargado general del sistema con privilegios completos de gestión. Se encarga de registrar, editar o desactivar productos y categorías, actualizar precios y reabastecer el stock físico en el inventario, administrar cuentas y permisos de clientes y empleados, supervisar pedidos, pagos y entregas, y generar reportes de ventas e inventario para la toma de decisiones.
+
+\subsection{Modelo ambiental del sistema}
+El modelo ambiental define la frontera exacta entre el software de ``Suministros G\&T'' y el entorno exterior con el que intercambia información.
+
+\subsubsection{Declaración de propósito}
+El propósito del \textbf{Sistema Web de Compra de Materiales de Escritorio} es automatizar y centralizar el proceso comercial de venta de papelería y útiles de oficina de ``Suministros G\&T'', ofreciendo a los clientes un canal web para consultar disponibilidad en tiempo real y realizar pedidos de forma segura, y brindando al personal administrativo herramientas confiables para gestionar el inventario, verificar pagos, coordinar entregas y obtener reportes operativos.
+
+\subsubsection{Diagrama de contexto}
+El diagrama de contexto (Nivel 0) sitúa al sistema como un único proceso central conectado únicamente con las tres entidades externas que interactúan con él: \textbf{Cliente}, \textbf{Empleado} y \textbf{Administrador}. Los flujos principales de entrada y salida de datos son:
+\begin{itemize}
+    \item \textbf{Cliente $\rightarrow$ Sistema:} Datos de registro y autenticación, criterios de búsqueda y filtros, selección de productos y cantidades, dirección de entrega, comprobante o método de pago y confirmación de pedido.
+    \item \textbf{Sistema $\rightarrow$ Cliente:} Catálogo digital actualizado, precios y disponibilidad en stock, cálculo de subtotales y total del carrito, comprobante de pedido registrado y estado actual de entrega.
+    \item \textbf{Empleado $\rightarrow$ Sistema:} Credenciales de acceso, verificación de pagos, actualización de estado de preparación y despacho de pedidos.
+    \item \textbf{Sistema $\rightarrow$ Empleado:} Listado de pedidos pendientes, detalle de artículos por preparar y datos de entrega del cliente.
+    \item \textbf{Administrador $\rightarrow$ Sistema:} Credenciales administrativas, altas/modificaciones de productos y categorías, actualización de precios y reposición de stock, gestión de usuarios y solicitud de reportes.
+    \item \textbf{Sistema $\rightarrow$ Administrador:} Confirmación de operaciones, alertas de bajo inventario, historial completo de transacciones y reportes de pedidos, ventas e inventario.
+\end{itemize}
+
+% =========================================================================
+% INICIO DE BLOQUE PARA IMAGEN: DIAGRAMA DE CONTEXTO (MODELO AMBIENTAL)
+% Descomenta las siguientes líneas cuando subas diagrama_contexto.png a Overleaf:
+% =========================================================================
+ \begin{figure}[htbp]
+     \centering
+     \includegraphics[width=0.9\textwidth]{modelo ambiental.png}
+     \caption{Diagrama de contexto del Sistema Web de Compra de Materiales de Escritorio}
+     \label{fig:diagrama_contexto}
+ \end{figure}
+
+\subsubsection{Identificación de acontecimientos del entorno}
+Los acontecimientos (eventos) son los estímulos externos que ocurren en el negocio y ante los cuales el sistema debe responder de manera predecible:
+
+{\small
+\begin{xltabular}{\textwidth}{|>{\raggedright\arraybackslash}p{1.2cm}|>{\raggedright\arraybackslash}p{1.8cm}|X|X|}
+    % --- Título y encabezado de la PRIMERA página ---
+    \caption{Lista de acontecimientos del entorno del sistema}
+    \label{tab:acontecimientos_entorno} \\
+    \hline
+    \textbf{Cód.} & \textbf{Actor} & \textbf{Acontecimiento del entorno} & \textbf{Respuesta esperada del sistema} \\
+    \hline
+    \endfirsthead
+
+    % --- Encabezado que se repite en las páginas SIGUIENTES ---
+    \multicolumn{4}{l}{\textit{Continuación de la Tabla \ref{tab:acontecimientos_entorno}}} \\
+    \hline
+    \textbf{Cód.} & \textbf{Actor} & \textbf{Acontecimiento del entorno} & \textbf{Respuesta esperada del sistema} \\
+    \hline
+    \endhead
+
+    % --- Pie de tabla en páginas intermedias ---
+    \multicolumn{4}{r}{\textit{Continúa en la siguiente página...}} \\
+    \endfoot
+
+    % --- Pie final de la tabla ---
+    \endlastfoot
+
+    % --- Contenido de las filas ---
+    EV01 & Cliente & Solicita registrarse como nuevo usuario. & Valida datos únicos, cifra la contraseña y crea la cuenta de cliente. \\*
+    \hline
+    EV02 & Todos & Ingresa credenciales para iniciar sesión. & Verifica identidad, asigna permisos según rol y abre la sesión. \\*
+    \hline
+    EV03 & Cliente & Consulta el catálogo o aplica filtros de búsqueda. & Devuelve los productos activos con su precio y stock disponible. \\*
+    \hline
+    EV04 & Cliente & Agrega o modifica artículos en el carrito. & Verifica stock disponible y recalcula subtotales y monto total. \\*
+    \hline
+    EV05 & Cliente & Confirma su pedido con dirección y pago. & Descuenta el stock, genera el pedido único y registra el pago. \\*
+    \hline
+    EV06 & Empleado & Verifica un pago y prepara un pedido. & Actualiza el estado del pago y cambia el pedido a ``En preparación''. \\*
+    \hline
+    EV07 & Empleado & Despacha el pedido para su entrega. & Cambia el estado del pedido a ``En camino'' o ``Entregado''. \\*
+    \hline
+    EV08 & Admin & Registra nuevos artículos o repone existencias. & Actualiza el catálogo y suma las nuevas unidades al inventario. \\*
+    \hline
+    EV09 & Admin & Solicita un reporte operativo del negocio. & Consolida los datos de pedidos, ventas o stock en un informe. \\
+    \hline
+\end{xltabular}
+}
+
+\subsection{Identificación de requisitos funcionales}
+Los requisitos funcionales describen las operaciones concretas que el sistema debe realizar para cubrir las necesidades del negocio y los acontecimientos identificados:
+
+\begin{itemize}
+    \item \textbf{RF01 (Registro de clientes):} El sistema permitirá a los usuarios nuevos crear una cuenta ingresando y validando nombre completo, correo electrónico único, teléfono, dirección y contraseña.
+    \item \textbf{RF02 (Inicio y cierre de sesión):} El sistema permitirá a clientes, empleados y administradores autenticarse con sus credenciales y cerrar sesión de forma segura.
+    \item \textbf{RF03 (Gestión de perfil y cuentas):} El usuario podrá actualizar sus datos personales y contraseña, mientras que el administrador podrá gestionar el estado de las cuentas registradas.
+    \item \textbf{RF04 (Visualización del catálogo digital):} El sistema mostrará los materiales de escritorio disponibles con su imagen referencial, precio unitario y disponibilidad.
+    \item \textbf{RF05 (Clasificación por categorías):} El sistema permitirá organizar y filtrar los productos por categorías lógicas (papelería, escritura, archivo, oficina, entre otras).
+    \item \textbf{RF06 (Búsqueda de productos):} El usuario podrá buscar artículos específicos mediante palabras clave o nombre del producto.
+    \item \textbf{RF07 (Detalle del producto):} Al seleccionar un artículo, se desplegará una ficha con su descripción completa, características, precio y cantidad exacta en stock.
+    \item \textbf{RF08 (Agregar productos al carrito):} El cliente podrá seleccionar la cantidad deseada de un producto y añadirlo a su carrito virtual.
+    \item \textbf{RF09 (Modificar o eliminar del carrito):} El cliente podrá cambiar las cantidades de los artículos o quitarlos del carrito antes de confirmar su compra.
+    \item \textbf{RF10 (Cálculo automático de importes):} El sistema calculará en tiempo real los subtotales por línea y el monto total general de la compra.
+    \item \textbf{RF11 (Validación de disponibilidad de stock):} El sistema verificará que exista inventario suficiente antes de agregar artículos y al momento de confirmar un pedido.
+    \item \textbf{RF12 (Confirmación y registro de pedidos):} El cliente podrá confirmar su compra registrando su dirección de entrega, generando un número único de pedido y descontando automáticamente el stock.
+    \item \textbf{RF13 (Gestión y seguimiento de estados del pedido):} El empleado y el administrador podrán actualizar el estado del pedido (\textit{Recibido}, \textit{En preparación}, \textit{En camino}, \textit{Entregado}), y el cliente podrá consultarlo en su historial.
+    \item \textbf{RF14 (Administración de productos y categorías):} El administrador podrá registrar, consultar, editar y desactivar productos y categorías del catálogo.
+    \item \textbf{RF15 (Gestión de precios e inventario):} El administrador podrá modificar precios unitarios y registrar reposiciones de stock en almacén.
+    \item \textbf{RF16 (Registro y verificación de pagos):} El cliente podrá seleccionar un método de pago y registrar su comprobante al confirmar el pedido, y el empleado o administrador podrá verificarlo.
+    \item \textbf{RF17 (Gestión de entregas):} El sistema permitirá registrar los datos de entrega del pedido y actualizar su estado de despacho hasta la recepción por parte del cliente.
+    \item \textbf{RF18 (Generación de reportes):} El administrador podrá generar reportes resumidos de pedidos realizados, ingresos por ventas y estado actual del inventario.
+\end{itemize}
+
+\subsection{Identificación de requisitos no funcionales}
+Los requisitos no funcionales definen las condiciones de calidad, seguridad y rendimiento que debe cumplir la plataforma:
+
+\begin{itemize}
+    \item \textbf{RNF01 (Usabilidad):} La interfaz debe ser clara, intuitiva y fácil de navegar tanto para compradores ocasionales como para el personal administrativo.
+    \item \textbf{RNF02 (Rendimiento):} Las consultas al catálogo, búsquedas y operaciones del carrito deben responder en menos de 3 segundos bajo carga normal.
+    \item \textbf{RNF03 (Seguridad y control de acceso):} Cada usuario accederá únicamente a las funciones permitidas según su rol (Cliente, Empleado o Administrador).
+    \item \textbf{RNF04 (Protección de datos y contraseñas):} Las contraseñas se almacenarán cifradas y los datos personales se usarán exclusivamente para la gestión comercial de la tienda.
+    \item \textbf{RNF05 (Disponibilidad):} El sistema estará operativo de forma continua durante el horario comercial de atención de la empresa.
+    \item \textbf{RNF06 (Compatibilidad):} La plataforma funcionará correctamente en los navegadores web actuales (Chrome, Firefox, Edge y Safari).
+    \item \textbf{RNF07 (Diseño adaptable / Responsive):} Las pantallas se adaptarán automáticamente a computadoras de escritorio, tabletas y teléfonos celulares.
+    \item \textbf{RNF08 (Integridad de datos):} Toda operación sobre inventario y pedidos aplicará validaciones estrictas para evitar registros incompletos o stock negativo.
+    \item \textbf{RNF09 (Mantenibilidad):} El código y la base de datos seguirán una estructura modular y documentada que facilite futuras correcciones o ampliaciones.
+    \item \textbf{RNF10 (Respaldo de información):} Se realizarán copias de seguridad periódicas de la base de datos para evitar pérdida de información ante fallos.
+\end{itemize}
+
+\subsection{Cronograma inicial del proyecto}
+\label{subsec:cronograma_inicial}
+Para organizar las actividades del equipo de siete integrantes bajo el enfoque iterativo y las disciplinas de AUP (comunicación, planeación, modelado, construcción y despliegue), se establece la organización de recursos, el cronograma por fases e iteraciones y los controles básicos de seguimiento y calidad.
+
+\subsubsection*{Organización del equipo y herramientas}
+El equipo de siete integrantes (capacidad estimada de $65$ horas-persona por semana, totalizando $195$ horas-persona en el ciclo académico) distribuye sus responsabilidades por especialidad: Coordinación y consolidación documental (1 integrante), Modelado dinámico y casos de uso (2 integrantes), Modelado estructural y diseño de base de datos en MySQL (2 integrantes), Arquitectura cliente-servidor y diseño UX/UI en Figma (1 integrante), y Control de calidad y trazabilidad (1 integrante). Como herramientas estándar (costo $\$0$) se emplean Draw.io para los diagramas UML y E-R, Figma para prototipos, Overleaf (LaTeX) para la documentación y GitHub para el control de versiones.
+
+\subsubsection*{Planificación por fases e iteraciones AUP}
+El esfuerzo práctico del equipo se concentra en el cierre de las fases de Inicio y Elaboración (mediante tres iteraciones con líneas base auditadas), dejando planificadas las etapas posteriores de Construcción y Transición:
+
+{\small
+\begin{xltabular}{\textwidth}{|>{\raggedright\arraybackslash}p{2.4cm}|>{\raggedright\arraybackslash}p{2.2cm}|X|>{\raggedright\arraybackslash}p{2.6cm}|}
+    % --- Título y encabezado de la PRIMERA página ---
+    \caption{Cronograma general del proyecto por fases e iteraciones AUP}
+    \label{tab:cronograma_aup} \\
+    \hline
+    \textbf{Fase / Iteración} & \textbf{Periodo} & \textbf{Actividades y entregables principales} & \textbf{Hito / Línea Base} \\
+    \hline
+    \endfirsthead
+
+    % --- Encabezado que se repite en las páginas SIGUIENTES ---
+    \multicolumn{4}{l}{\textit{Continuación de la Tabla \ref{tab:cronograma_aup}}} \\
+    \hline
+    \textbf{Fase / Iteración} & \textbf{Periodo} & \textbf{Actividades y entregables principales} & \textbf{Hito / Línea Base} \\
+    \hline
+    \endhead
+
+    % --- Pie de tabla en páginas intermedias ---
+    \multicolumn{4}{r}{\textit{Continúa en la siguiente página...}} \\
+    \endfoot
+
+    % --- Pie final de la tabla ---
+    \endlastfoot
+
+    % --- Contenido de las filas ---
+    1. Inicio \newline (Iteración 1) & Semana 1 \newline ($\approx 68$ h-p) & Visión del sistema, identificación de actores (Cliente, Empleado, Admin), modelo ambiental de contexto, RF01--RF18, RNF01--RNF10 y cronograma inicial. & Línea Base LB-I1 (Aprobada) \\*
+    \hline
+    2. Elaboración \newline (Iteración 2) & Semana 2 \newline ($\approx 64$ h-p) & Casos de uso generales y expandidos, diagrama de clases, modelo conceptual, diagrama E-R, diseño de BD MySQL y \textit{wireframes} iniciales. & Línea Base LB-I2 (Auditoría 1) \\*
+    \hline
+    2. Elaboración \newline (Iteración 3) & Semana 3 \newline ($\approx 63$ h-p) & Diagramas dinámicos (secuencia, actividades y estados), arquitectura cliente-servidor, \textit{mockups} navegables en Figma y matriz de trazabilidad al $100\%$. & Línea Base LB-I3 (Entrega final) \\*
+    \hline
+    3. Construcción & Proyectada & Configuración de entorno, creación física de BD MySQL, desarrollo de los 7 módulos e integración y pruebas funcionales. & Planificada \\*
+    \hline
+    4. Transición & Proyectada & Instalación en entorno final, pruebas de aceptación, manual de usuario, despliegue y evaluación final. & Planificada \\
+    \hline
+\end{xltabular}
+}
+
+\subsubsection*{Control de calidad, riesgos y criterios de cierre}
+Para asegurar la coherencia de los entregables y mitigar los principales riesgos del proyecto (inconsistencia de nombres entre modelos, ambigüedad en reglas de stock y conflictos de edición concurrente), se aplican reuniones cortas de sincronización cada dos días (\textit{check-ins}), una plantilla visual única en Draw.io, auditorías de consistencia UML al cierre de cada iteración y una matriz de trazabilidad que vincula el $100\%$ de los RF y RNF con sus respectivos diagramas y prototipos. Cada artefacto se da por terminado cuando cuenta con su archivo fuente editable, su exportación visual y el visto bueno de revisión cruzada.

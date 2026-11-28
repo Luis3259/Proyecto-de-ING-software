@@ -1,0 +1,390 @@
+\section{Fase de Elaboración -- AUP}
+
+\subsection{Análisis de requisitos del sistema}
+Durante la fase de Elaboración se revisan y agrupan los 18 requisitos funcionales y 10 requisitos no funcionales levantados en la fase de Inicio para organizarlos en módulos lógicos de trabajo. Este análisis permite verificar que no existan contradicciones entre las reglas del negocio (como el descuento automático de existencias o los estados de entrega) y sirve de base para construir los modelos estructurales, dinámicos y de datos.
+
+{\small
+\begin{xltabular}{\textwidth}{|>{\raggedright\arraybackslash}p{3.4cm}|X|>{\raggedright\arraybackslash}p{3.0cm}|}
+    % --- Título y encabezado de la PRIMERA página ---
+    \caption{Agrupación modular de requisitos del sistema}
+    \label{tab:analisis_requisitos} \\
+    \hline
+    \textbf{Módulo funcional} & \textbf{Descripción de operaciones cubiertas} & \textbf{Requisitos asociados} \\
+    \hline
+    \endfirsthead
+
+    % --- Encabezado que se repite en las páginas SIGUIENTES ---
+    \multicolumn{3}{l}{\textit{Continuación de la Tabla \ref{tab:analisis_requisitos}}} \\
+    \hline
+    \textbf{Módulo funcional} & \textbf{Descripción de operaciones cubiertas} & \textbf{Requisitos asociados} \\
+    \hline
+    \endhead
+
+    % --- Pie de tabla en páginas intermedias ---
+    \multicolumn{3}{r}{\textit{Continúa en la siguiente página...}} \\
+    \endfoot
+
+    % --- Pie final de la tabla ---
+    \endlastfoot
+
+    % --- Contenido de las filas ---
+    Gestión de cuentas & Registro de nuevos clientes, inicio/cierre de sesión por roles y edición de perfil o estado de cuentas. & RF01, RF02, RF03 \\*
+    \hline
+    Catálogo y productos & Visualización del catálogo digital, filtrado por categorías, búsqueda por palabras clave y ficha de detalle. & RF04, RF05, RF06, RF07 \\*
+    \hline
+    Carrito y pedidos & Agregar, modificar o eliminar artículos, cálculo automático de totales, validación de stock y confirmación. & RF08, RF09, RF10, RF11, RF12 \\*
+    \hline
+    Inventario y administración & Alta y edición de productos y categorías, actualización de precios y reposición física de stock. & RF14, RF15 \\*
+    \hline
+    Pagos, entregas y reportes & Registro y verificación de comprobantes de pago, seguimiento de estados de entrega y generación de reportes. & RF13, RF16, RF17, RF18 \\
+    \hline
+\end{xltabular}
+}
+
+\subsection{Identificación de actores y casos de uso}
+Con base en los módulos anteriores, se definen las interacciones directas entre los tres actores del sistema (\textbf{Cliente}, \textbf{Empleado} y \textbf{Administrador}) y los casos de uso principales que cubren la funcionalidad de la tienda virtual:
+
+{\small
+\begin{xltabular}{\textwidth}{|>{\raggedright\arraybackslash}p{1.6cm}|>{\raggedright\arraybackslash}p{4.4cm}|>{\raggedright\arraybackslash}p{2.6cm}|X|}
+    % --- Título y encabezado de la PRIMERA página ---
+    \caption{Catálogo de actores y casos de uso del sistema}
+    \label{tab:actores_casos_uso} \\
+    \hline
+    \textbf{Código} & \textbf{Caso de uso} & \textbf{Actor principal} & \textbf{Objetivo principal} \\
+    \hline
+    \endfirsthead
+
+    % --- Encabezado que se repite en las páginas SIGUIENTES ---
+    \multicolumn{4}{l}{\textit{Continuación de la Tabla \ref{tab:actores_casos_uso}}} \\
+    \hline
+    \textbf{Código} & \textbf{Caso de uso} & \textbf{Actor principal} & \textbf{Objetivo principal} \\
+    \hline
+    \endhead
+
+    % --- Pie de tabla en páginas intermedias ---
+    \multicolumn{4}{r}{\textit{Continúa en la siguiente página...}} \\
+    \endfoot
+
+    % --- Pie final de la tabla ---
+    \endlastfoot
+
+    % --- Contenido de las filas ---
+    CU-01 & Registrarse e iniciar sesión & Cliente / Todos & Crear cuenta de cliente y autenticar usuarios según su rol. \\*
+    \hline
+    CU-02 & Consultar y buscar en catálogo & Cliente & Explorar productos por categoría, buscar artículos y ver su detalle. \\*
+    \hline
+    CU-03 & Gestionar carrito de compras & Cliente & Añadir artículos, cambiar cantidades o quitar productos calculando totales. \\*
+    \hline
+    CU-04 & Confirmar pedido y registrar pago & Cliente & Validar stock, registrar dirección de entrega, pago y descontar existencias. \\*
+    \hline
+    CU-05 & Consultar historial y seguimiento & Cliente & Revisar pedidos anteriores y ver el estado actual de entrega. \\*
+    \hline
+    CU-06 & Gestionar productos, categorías y stock & Administrador & Registrar o editar artículos, precios, categorías y reponer inventario. \\*
+    \hline
+    CU-07 & Verificar pagos y gestionar entregas & Empleado / Admin & Validar comprobantes de pago y actualizar estados de despacho y entrega. \\*
+    \hline
+    CU-08 & Gestionar usuarios y reportes & Administrador & Administrar cuentas de usuario y generar reportes de ventas e inventario. \\
+    \hline
+\end{xltabular}
+}
+
+\subsection{Diagrama general de casos de uso}
+El diagrama general de casos de uso representa gráficamente el límite del sistema y muestra qué funcionalidades utiliza cada actor, incluyendo las relaciones de inclusión (\texttt{<<include>>}) y extensión (\texttt{<<extend>>}) entre escenarios dependientes.
+
+% =========================================================================
+% INSERTAR FIGURA: Diagrama General de Casos de Uso (https://lh3.googleusercontent.com/gg/AJWXcNdmI6d4TmoDjPV0u8pqvcZhp8Pg1obYXp7ltUv0kyMlGqBBPemdLz546kgfVy1DEzyP5XiybaRmE10NfaWZCTwpabYjhS4Xso5h27kCAx8qTvNZdA6fjk9DefIKRiS3Xj1SXmgdSZj2o5VnON8U4hRgvmASj-AbkG7TYBuscZV7RUg7ZoRh3HnQRnoDJzhTijEsCDsKv8D5T83HrHChAh8J_OM3uZp8VDyV1Rbx56oNgIGgoGNCwmhf_EzLOJZuFyEu2is7DbrSugv-cPSHnZnYGiiU_w_kLyY=s0)
+% Asegúrate de incluir a los 3 actores: Cliente, Empleado y Administrador.
+% =========================================================================
+
+\subsection{Especificación de casos de uso}
+A continuación, se detallan las especificaciones expandidas de los escenarios más importantes del sistema, indicando sus precondiciones, flujo normal, flujos alternativos y postcondiciones:
+
+{\small
+\begin{xltabular}{\textwidth}{|>{\raggedright\arraybackslash}p{3.4cm}|X|}
+    % --- Título y encabezado de la PRIMERA página ---
+    \caption{Especificación expandida -- CU-03 y CU-04: Gestionar carrito y confirmar pedido}
+    \label{tab:cu_expandido_compra} \\
+    \hline
+    \textbf{Elemento} & \textbf{Descripción} \\
+    \hline
+    \endfirsthead
+
+    % --- Encabezado que se repite en las páginas SIGUIENTES ---
+    \multicolumn{2}{l}{\textit{Continuación de la Tabla \ref{tab:cu_expandido_compra}}} \\
+    \hline
+    \textbf{Elemento} & \textbf{Descripción} \\
+    \hline
+    \endhead
+
+    % --- Pie de tabla en páginas intermedias ---
+    \multicolumn{2}{r}{\textit{Continúa en la siguiente página...}} \\
+    \endfoot
+
+    % --- Pie final de la tabla ---
+    \endlastfoot
+
+    % --- Contenido de las filas ---
+    \textbf{Identificador y nombre} & CU-03 / CU-04: Gestionar carrito de compras y confirmar pedido \\*
+    \hline
+    \textbf{Actor principal} & Cliente \\*
+    \hline
+    \textbf{Requisitos cubiertos} & RF08, RF09, RF10, RF11, RF12, RF16 \\*
+    \hline
+    \textbf{Precondiciones} & El cliente inició sesión en la plataforma y existen productos activos con stock disponible. \\*
+    \hline
+    \textbf{Flujo normal} & 
+    1. El cliente selecciona un producto del catálogo e indica la cantidad deseada. \newline
+    2. El sistema verifica que la cantidad solicitada no supere el stock disponible en almacén. \newline
+    3. El sistema agrega el artículo al carrito y recalcula los subtotales y el monto total. \newline
+    4. El cliente ingresa al resumen del carrito, confirma los artículos y pulsa ``Confirmar pedido''. \newline
+    5. El cliente registra su dirección de entrega y selecciona el método/comprobante de pago. \newline
+    6. El sistema vuelve a validar el stock, registra el pedido con estado ``Recibido'', guarda el pago como ``Pendiente de verificación'' y descuenta las existencias del inventario. \\*
+    \hline
+    \textbf{Flujos alternativos} & \textbf{A1 (Stock insuficiente):} En los pasos 2 o 6, si la cantidad supera el stock disponible, el sistema detiene la operación y muestra un aviso indicando las unidades máximas disponibles. \newline
+    \textbf{A2 (Modificación del carrito):} Antes del paso 4, el cliente puede cambiar cantidades o eliminar artículos y el sistema actualiza el total automáticamente. \\*
+    \hline
+    \textbf{Postcondiciones} & El pedido y su pago quedan registrados en la base de datos y el stock de los productos comprados disminuye según las cantidades confirmadas. \\
+    \hline
+\end{xltabular}
+}
+
+{\small
+\begin{xltabular}{\textwidth}{|>{\raggedright\arraybackslash}p{3.4cm}|X|}
+    % --- Título y encabezado de la PRIMERA página ---
+    \caption{Especificación expandida -- CU-06: Gestionar productos, categorías y stock}
+    \label{tab:cu_expandido_admin} \\
+    \hline
+    \textbf{Elemento} & \textbf{Descripción} \\
+    \hline
+    \endfirsthead
+
+    % --- Encabezado que se repite en las páginas SIGUIENTES ---
+    \multicolumn{2}{l}{\textit{Continuación de la Tabla \ref{tab:cu_expandido_admin}}} \\
+    \hline
+    \textbf{Elemento} & \textbf{Descripción} \\
+    \hline
+    \endhead
+
+    % --- Pie de tabla en páginas intermedias ---
+    \multicolumn{2}{r}{\textit{Continúa en la siguiente página...}} \\
+    \endfoot
+
+    % --- Pie final de la tabla ---
+    \endlastfoot
+
+    % --- Contenido de las filas ---
+    \textbf{Identificador y nombre} & CU-06: Gestionar productos, categorías y stock \\*
+    \hline
+    \textbf{Actor principal} & Administrador \\*
+    \hline
+    \textbf{Requisitos cubiertos} & RF14, RF15 \\*
+    \hline
+    \textbf{Precondiciones} & El administrador ha iniciado sesión con credenciales autorizadas para su rol. \\*
+    \hline
+    \textbf{Flujo normal} & 
+    1. El administrador ingresa al panel de gestión de productos e inventario. \newline
+    2. Selecciona registrar un nuevo artículo o editar uno existente. \newline
+    3. Ingresa o actualiza nombre, categoría, descripción, precio unitario, imagen y stock físico. \newline
+    4. Pulsa ``Guardar cambios''. \newline
+    5. El sistema valida que los datos sean correctos, persiste la información y actualiza el catálogo público. \\*
+    \hline
+    \textbf{Flujos alternativos} & \textbf{A1 (Datos incompletos o negativos):} Si el precio o el stock ingresados son negativos o faltan campos obligatorios, el sistema bloquea el guardado y solicita corregir los datos. \\*
+    \hline
+    \textbf{Postcondiciones} & El catálogo digital y las existencias en inventario reflejan los valores actualizados de forma inmediata. \\
+    \hline
+\end{xltabular}
+}
+
+{\small
+\begin{xltabular}{\textwidth}{|>{\raggedright\arraybackslash}p{3.4cm}|X|}
+    % --- Título y encabezado de la PRIMERA página ---
+    \caption{Especificación expandida -- CU-07: Verificar pagos y gestionar entregas}
+    \label{tab:cu_expandido_entregas} \\
+    \hline
+    \textbf{Elemento} & \textbf{Descripción} \\
+    \hline
+    \endfirsthead
+
+    % --- Encabezado que se repite en las páginas SIGUIENTES ---
+    \multicolumn{2}{l}{\textit{Continuación de la Tabla \ref{tab:cu_expandido_entregas}}} \\
+    \hline
+    \textbf{Elemento} & \textbf{Descripción} \\
+    \hline
+    \endhead
+
+    % --- Pie de tabla en páginas intermedias ---
+    \multicolumn{2}{r}{\textit{Continúa en la siguiente página...}} \\
+    \endfoot
+
+    % --- Pie final de la tabla ---
+    \endlastfoot
+
+    % --- Contenido de las filas ---
+    \textbf{Identificador y nombre} & CU-07: Verificar pagos y gestionar entregas \\*
+    \hline
+    \textbf{Actor principal} & Empleado / Administrador \\*
+    \hline
+    \textbf{Requisitos cubiertos} & RF13, RF16, RF17 \\*
+    \hline
+    \textbf{Precondiciones} & Existe al menos un pedido registrado en el sistema con pago pendiente o en proceso de atención. \\*
+    \hline
+    \textbf{Flujo normal} & 
+    1. El empleado o administrador abre el módulo de pedidos pendientes. \newline
+    2. Revisa el detalle de artículos solicitados, la dirección de entrega y el comprobante de pago. \newline
+    3. Confirma la validez del pago (cambiando su estado a ``Verificado''). \newline
+    4. Actualiza secuencialmente el estado operativo del pedido: de ``Recibido'' a ``En preparación'', luego ``En camino'' y finalmente ``Entregado''. \newline
+    5. El sistema guarda cada cambio con fecha y hora y lo muestra en el historial del cliente. \\*
+    \hline
+    \textbf{Flujos alternativos} & \textbf{A1 (Pago observado):} Si el comprobante no coincide con el monto del pedido, el operador marca el pago como ``Observado'' y notifica al cliente antes de despachar la mercadería. \\*
+    \hline
+    \textbf{Postcondiciones} & El estado del pago y el seguimiento de entrega quedan actualizados tanto para el equipo interno como para el cliente. \\
+    \hline
+\end{xltabular}
+}
+
+% =========================================================================
+% INSERTAR FIGURAS (Opcional/Complementario en 4.4):
+% - Diagramas de Secuencia (secuencia_carrito.png, secuencia_pedido.png)
+% - Diagramas de Actividades y Estados (actividades_compra.png, estados_pedido.png)
+% =========================================================================
+
+\subsection{Diagrama de clases}
+El diagrama de clases representa la estructura lógica estática del sistema, definiendo las clases principales del dominio, sus atributos tipados, sus operaciones (métodos) y las relaciones de asociación, agregación o composición con sus respectivas multiplicidades. Entre las clases centrales destacan \texttt{Usuario}, \texttt{Rol}, \texttt{Categoria}, \texttt{Producto}, \texttt{Carrito}, \texttt{DetalleCarrito}, \texttt{Pedido}, \texttt{DetallePedido}, \texttt{Pago} y \texttt{Entrega}.
+
+% =========================================================================
+% INSERTAR FIGURA: Diagrama de Clases (clases_diseno.png)
+% =========================================================================
+
+\subsection{Modelo conceptual de datos}
+El modelo conceptual identifica las entidades principales de información que necesita almacenar ``Suministros G\&T'' y las reglas de negocio que las vinculan, sin depender todavía de un motor de base de datos específico:
+\begin{itemize}
+    \item Un \textbf{Usuario} posee un \textbf{Rol} (Cliente, Empleado o Administrador) y puede tener un \textbf{Carrito} activo y múltiples \textbf{Pedidos} realizados.
+    \item Una \textbf{Categoría} agrupa a uno o varios \textbf{Productos}, y cada producto pertenece a una categoría principal.
+    \item Un \textbf{Carrito} contiene uno o varios ítems de detalle asociados a productos específicos antes de confirmarse la compra.
+    \item Un \textbf{Pedido} consolida los productos comprados (con el precio unitario histórico del momento de compra), tiene asociado un registro de \textbf{Pago} y un registro de \textbf{Entrega} con su dirección y estado de seguimiento.
+\end{itemize}
+
+% =========================================================================
+% INSERTAR FIGURA: Modelo Conceptual de Datos (modelo_conceptual.png)
+% =========================================================================
+
+\subsection{Diagrama entidad-relación}
+El diagrama entidad-relación (E-R) formaliza las entidades del modelo conceptual junto con sus atributos, identificadores únicos y cardinalidades exactas ($1:1$, $1:N$ y $N:M$ resueltas mediante tablas intermedias de detalle), garantizando la integridad referencial antes de pasar al esquema físico.
+
+% =========================================================================
+% INSERTAR FIGURA: Diagrama Entidad-Relación (modelo_er.png)
+% =========================================================================
+
+\subsection{Arquitectura del sistema}
+Para el funcionamiento del sistema se adopta una \textbf{arquitectura cliente-servidor web de tres capas}, diseñada para separar la presentación visual, las reglas del negocio y el almacenamiento persistente de datos:
+\begin{itemize}
+    \item \textbf{Capa de Presentación (Frontend):} Ejecutada en el navegador web del usuario (computadora o celular) mediante HTML5, CSS3, JavaScript y Bootstrap, encargada de mostrar el catálogo, gestionar la interacción del carrito y adaptar las vistas a distintos tamaños de pantalla.
+    \item \textbf{Capa de Lógica de Negocio (Backend):} Implementada sobre Node.js (Express), centraliza la autenticación por roles, el cálculo de importes, la validación de stock disponible, el flujo de estados de pedidos y la generación de reportes.
+    \item \textbf{Capa de Datos (Persistencia):} Gestionada por el motor relacional MySQL, almacena de forma íntegra y normalizada los registros de usuarios, productos, inventario, pedidos, pagos y entregas.
+\end{itemize}
+
+% =========================================================================
+% INSERTAR FIGURA: Diagrama de Arquitectura / Componentes y Despliegue
+% (arquitectura_sistema.png / despliegue.png)
+% =========================================================================
+
+\subsection{Diseño de interfaces o prototipos}
+Con el objetivo de validar la experiencia de usuario (UX/UI) y verificar que la navegación sea sencilla antes de escribir código, se diseñaron prototipos de baja fidelidad (wireframes) y pantallas navegables de alta fidelidad (mockups) en \textbf{Figma}, cubriendo tanto el entorno del \textbf{Cliente} (inicio, catálogo con filtros, detalle de producto, carrito, confirmación y seguimiento de pedidos) como el panel del \textbf{Empleado y Administrador} (gestión de productos, actualización de stock, verificación de pagos, control de entregas y reportes).
+
+% =========================================================================
+% INSERTAR FIGURAS: Capturas de Wireframes y Mockups en Figma
+% (figma_catalogo.png, figma_carrito.png, figma_admin.png)
+% =========================================================================
+
+\subsection{Diseño de la base de datos}
+A partir del diagrama entidad-relación se obtiene el esquema relacional normalizado hasta la Tercera Forma Normal (3FN) para el motor \textbf{MySQL}, definiendo claves primarias (\texttt{PK}), claves foráneas (\texttt{FK}), tipos de datos y restricciones de integridad.
+
+% =========================================================================
+% INSERTAR FIGURA: Esquema Relacional Normalizado (esquema_relacional.png)
+% =========================================================================
+
+{\small
+\begin{xltabular}{\textwidth}{|>{\raggedright\arraybackslash}p{2.6cm}|>{\raggedright\arraybackslash}p{2.8cm}|>{\raggedright\arraybackslash}p{2.8cm}|X|}
+    % --- Título y encabezado de la PRIMERA página ---
+    \caption{Resumen del diccionario de datos -- Tablas principales en MySQL}
+    \label{tab:diccionario_datos} \\
+    \hline
+    \textbf{Tabla} & \textbf{Atributo} & \textbf{Tipo / Restricción} & \textbf{Descripción} \\
+    \hline
+    \endfirsthead
+
+    % --- Encabezado que se repite en las páginas SIGUIENTES ---
+    \multicolumn{4}{l}{\textit{Continuación de la Tabla \ref{tab:diccionario_datos}}} \\
+    \hline
+    \textbf{Tabla} & \textbf{Atributo} & \textbf{Tipo / Restricción} & \textbf{Descripción} \\
+    \hline
+    \endhead
+
+    % --- Pie de tabla en páginas intermedias ---
+    \multicolumn{4}{r}{\textit{Continúa en la siguiente página...}} \\
+    \endfoot
+
+    % --- Pie final de la tabla ---
+    \endlastfoot
+
+    % --- Contenido de las filas ---
+    \texttt{usuario} & \texttt{id\_usuario} & \texttt{INT PK AI} & Identificador único del usuario registrado. \\*
+    \hline
+    \texttt{usuario} & \texttt{nombre} & \texttt{VARCHAR(100) NN} & Nombre completo del cliente, empleado o administrador. \\*
+    \hline
+    \texttt{usuario} & \texttt{correo} & \texttt{VARCHAR(120) UQ} & Correo electrónico único utilizado para iniciar sesión. \\*
+    \hline
+    \texttt{usuario} & \texttt{password\_hash} & \texttt{VARCHAR(255) NN} & Contraseña almacenada de forma cifrada. \\*
+    \hline
+    \texttt{usuario} & \texttt{rol} & \texttt{ENUM NN} & Rol asignado: \texttt{'cliente'}, \texttt{'empleado'} o \texttt{'admin'}. \\*
+    \hline
+    \texttt{categoria} & \texttt{id\_categoria} & \texttt{INT PK AI} & Identificador único de la categoría de productos. \\*
+    \hline
+    \texttt{categoria} & \texttt{nombre} & \texttt{VARCHAR(80) NN} & Nombre de la categoría (ej. Papelería, Escritura). \\*
+    \hline
+    \texttt{producto} & \texttt{id\_producto} & \texttt{INT PK AI} & Identificador único del artículo de escritorio. \\*
+    \hline
+    \texttt{producto} & \texttt{id\_categoria} & \texttt{INT FK NN} & Referencia a la categoría a la que pertenece el artículo. \\*
+    \hline
+    \texttt{producto} & \texttt{nombre} & \texttt{VARCHAR(120) NN} & Nombre comercial del producto. \\*
+    \hline
+    \texttt{producto} & \texttt{precio\_unitario} & \texttt{DECIMAL(10,2) NN} & Precio de venta vigente del producto. \\*
+    \hline
+    \texttt{producto} & \texttt{stock} & \texttt{INT NN} & Cantidad física disponible en almacén ($\ge 0$). \\*
+    \hline
+    \texttt{pedido} & \texttt{id\_pedido} & \texttt{INT PK AI} & Identificador único de la compra confirmada. \\*
+    \hline
+    \texttt{pedido} & \texttt{id\_usuario} & \texttt{INT FK NN} & Referencia al cliente que realizó el pedido. \\*
+    \hline
+    \texttt{pedido} & \texttt{fecha\_pedido} & \texttt{DATETIME NN} & Fecha y hora exacta de confirmación del pedido. \\*
+    \hline
+    \texttt{pedido} & \texttt{total} & \texttt{DECIMAL(10,2) NN} & Monto total calculado de la compra. \\*
+    \hline
+    \texttt{detalle\_pedido} & \texttt{id\_detalle} & \texttt{INT PK AI} & Identificador de cada línea de producto en el pedido. \\*
+    \hline
+    \texttt{detalle\_pedido} & \texttt{id\_pedido} & \texttt{INT FK NN} & Referencia al pedido al que pertenece la línea. \\*
+    \hline
+    \texttt{detalle\_pedido} & \texttt{id\_producto} & \texttt{INT FK NN} & Referencia al producto adquirido. \\*
+    \hline
+    \texttt{detalle\_pedido} & \texttt{cantidad} & \texttt{INT NN} & Unidades compradas del producto. \\*
+    \hline
+    \texttt{detalle\_pedido} & \texttt{precio\_compra} & \texttt{DECIMAL(10,2) NN} & Precio unitario registrado al momento de confirmar. \\*
+    \hline
+    \texttt{pago} & \texttt{id\_pago} & \texttt{INT PK AI} & Identificador único del registro de pago. \\*
+    \hline
+    \texttt{pago} & \texttt{id\_pedido} & \texttt{INT FK UQ} & Referencia al pedido asociado al pago. \\*
+    \hline
+    \texttt{pago} & \texttt{metodo\_pago} & \texttt{VARCHAR(50) NN} & Modalidad elegida (Transferencia, QR, Contra entrega). \\*
+    \hline
+    \texttt{pago} & \texttt{estado\_pago} & \texttt{ENUM NN} & Estado: \texttt{'Pendiente'}, \texttt{'Verificado'} u \texttt{'Observado'}. \\*
+    \hline
+    \texttt{entrega} & \texttt{id\_entrega} & \texttt{INT PK AI} & Identificador único del registro de entrega. \\*
+    \hline
+    \texttt{entrega} & \texttt{id\_pedido} & \texttt{INT FK UQ} & Referencia al pedido correspondiente. \\*
+    \hline
+    \texttt{entrega} & \texttt{direccion} & \texttt{VARCHAR(200) NN} & Dirección física indicada por el cliente para el envío. \\*
+    \hline
+    \texttt{entrega} & \texttt{estado\_entrega} & \texttt{ENUM NN} & Estado: \texttt{'Recibido'}, \texttt{'En preparacion'}, \texttt{'En camino'} o \texttt{'Entregado'}. \\
+    \hline
+\end{xltabular}
+}
